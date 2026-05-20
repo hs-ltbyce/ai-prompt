@@ -93,3 +93,9 @@ tags: [coding, review, python]
 - `self`：自己原创
 - URL：外部来源链接
 - `unknown`：来源不明（直接粘贴内容）
+
+---
+
+## 外部资源
+
+技能市场、官方与社区优质仓库、专业工具与 CLI 的整理汇总，详见 [RESOURCES.md](./RESOURCES.md)。
