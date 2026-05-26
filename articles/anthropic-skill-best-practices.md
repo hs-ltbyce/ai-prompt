@@ -204,15 +204,15 @@ SKILL.md 充当概述，根据需要指导 Claude 。参考详细材料，就像
 #### 模式 1：带引用的高级指南
 
 示例结构：
-```markdown
+
 ---
 name: PDF 处理
 description: 从 PDF 文件中提取文本和表格，填充表单，合并文档。在处理 PDF 文件或当用户提到 PDF、表单或文档提取时使用。
 ---
 
-# PDF 处理
+\# PDF 处理
 
-## 快速开始
+\## 快速开始
 
 使用 pdfplumber 提取文本：
 
@@ -222,14 +222,13 @@ with pdfplumber.open("file.pdf") as pdf:
     text = pdf.pages[0].extract_text()
 ```
 
-## 高级功能
+\## 高级功能
 
 **表单填充**：请参阅 [FORMS.md](FORMS.md) 获取完整指南
 **API 参考**：请参阅 [REFERENCE.md](REFERENCE.md) 了解所有方法
 **示例**：请参阅 [EXAMPLES.md](EXAMPLES.md) 获取常见模式
 
 Claude 仅在需要时加载 FORMS.md、REFERENCE.md 或 EXAMPLES.md。
-```
 
 #### 模式 2：特定领域组织
 
