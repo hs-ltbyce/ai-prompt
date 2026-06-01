@@ -56,6 +56,7 @@ https://github.com/xxx/yyy/blob/main/some-skill.md
 | 提问模板 | `templates/` | 无需适配 |
 | 规则 | `rules/source/` | `rules/adapters/<tool>/` |
 | Skill | `skills/source/` | `skills/adapters/<tool>/` |
+| 博客/文章 | `articles/` | 无需适配 |
 
 **工具目录名对照：**
 
@@ -88,6 +89,8 @@ created: YYYY-MM-DD
 
 ### source/ 目录文件结构
 
+#### Skill / Rule 的格式
+
 ```markdown
 ---
 title: xxx
@@ -112,6 +115,28 @@ created: ...
 - [ ] claude-code
 - [ ] codex
 ```
+
+#### 博客/文章的格式
+
+```markdown
+---
+title: xxx
+source: ...  # 原链接或 self/unknown
+tags: [...]
+category: blog  # 或 article, tutorial, reference 等
+created: ...
+---
+```
+
+# 标题
+
+（正常的 Markdown 文档，无需额外结构）
+
+**说明**：博客/文章类型无需适配，直接存放原文或整理后的内容即可。
+
+**命名示例**：
+- Skill / Rule：`code-review.md`、`git-commit-style.md`、`test-generation.md`
+- 博客/文章：`how-to-write-good-prompts.md`、`understanding-agentic-workflows.md`
 
 ### adapters/ 目录文件结构
 
@@ -142,7 +167,11 @@ created: ...
 
 1. **不要改变内容的核心意图**，只做格式规范化
 2. **统一语言优先中文**：除引用、命令、术语外，内容主体统一用中文表达
-3. **内容有明显错误或过时信息**，在文件末尾用 `> ⚠️ 注意：` 块标注，不要直接删改
-4. **同一 skill 有多个工具版本时**，source/ 里的母本必须先于 adapters/ 存在
-5. **默认先写 source，不主动写 adapters**：除非用户明确要求适配到某个工具
-6. **如果无法判断应放哪个目录**，默认放 `skills/source/`，并在文件末尾注明"待分类"
+3. **遇到多语言内容**：以中文整理为主；原文有保留价值时可保留原语言并补充中文摘要
+4. **内容有明显错误或过时信息**：
+  - 学习/参考性质 → 放 `articles/` 并用 `> ⚠️ 注意：` 标注
+  - 规范/指导性质 → 放 `skills/source/` 或 `rules/source/` 并标注说明
+  - 不确定 → 不要直接删改，先标注"待分类"
+5. **同一 skill 有多个工具版本时**，source/ 里的母本必须先于 adapters/ 存在
+6. **默认先写 source，不主动写 adapters**：除非用户明确要求适配到某个工具
+7. **如果无法判断应放哪个目录**，默认放 `skills/source/`，并在文件末尾注明"待分类"
