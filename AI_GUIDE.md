@@ -28,8 +28,8 @@ https://github.com/xxx/yyy/blob/main/some-skill.md
 1. 访问该链接，获取内容
 2. 判断内容类型（template / rule / skill）
 3. 理解内容意图，用一句话概括，写入 `skills/source/` 或对应 source 目录作为母本
-4. 识别该内容适用的工具格式（Copilot / Cursor / Claude Code / Codex 等）
-5. 将内容转换为对应格式，放入 `adapters/` 子目录
+4. 默认只产出 source 母本；**仅当用户明确要求**时，再生成 `adapters/` 版本
+5. 若需要适配，再识别该内容适用的工具格式（Copilot / Cursor / Claude Code / Codex 等）并写入 `adapters/` 子目录
 6. 在文件头部填写 frontmatter，`source` 字段填写原始 URL
 7. 文件命名：使用英文小写 + 连字符，例如 `code-review.md`
 
@@ -43,7 +43,7 @@ https://github.com/xxx/yyy/blob/main/some-skill.md
 1. 理解内容意图，判断类型（template / rule / skill）
 2. 整理并规范化内容格式（修正 Markdown、补全结构）
 3. 提炼核心意图，写入对应 `source/` 目录作为母本
-4. 判断内容适用哪些工具，生成对应 `adapters/` 版本
+4. 默认只生成 `source/` 母本；**仅当用户明确要求**时，再生成对应 `adapters/` 版本
 5. 在文件头部 frontmatter 中，`source` 填写 `unknown`
 6. 如果能从内容中推断来源（作者署名、项目名等），在文件中注明
 
@@ -119,6 +119,16 @@ created: ...
 
 ---
 
+## 语言统一规范
+
+1. **默认使用中文**：本仓库新增或整理内容时，说明文字、章节标题、步骤描述优先使用中文。
+2. **术语可中英并存**：如存在行业通用术语（如 Hook、Composable、Container、Presentational），可保留英文术语并配合中文说明。
+3. **来源引用保留原文**：外部链接标题、专有名词、命令行指令可保留原文，不强制翻译。
+4. **同一文件保持单一主语言**：除术语与引用外，避免中英文段落混写。
+5. **适配文件遵循同一规范**：`skills/adapters/` 与 `rules/adapters/` 内文同样默认中文。
+
+---
+
 ## 命名规范
 
 - 全部英文小写
@@ -131,7 +141,8 @@ created: ...
 ## 整理时的注意事项
 
 1. **不要改变内容的核心意图**，只做格式规范化
-2. **遇到多语言内容**，保留原语言，frontmatter 中的 title 可以用中文
+2. **统一语言优先中文**：除引用、命令、术语外，内容主体统一用中文表达
 3. **内容有明显错误或过时信息**，在文件末尾用 `> ⚠️ 注意：` 块标注，不要直接删改
 4. **同一 skill 有多个工具版本时**，source/ 里的母本必须先于 adapters/ 存在
-5. **如果无法判断应放哪个目录**，默认放 `skills/source/`，并在文件末尾注明"待分类"
+5. **默认先写 source，不主动写 adapters**：除非用户明确要求适配到某个工具
+6. **如果无法判断应放哪个目录**，默认放 `skills/source/`，并在文件末尾注明"待分类"
