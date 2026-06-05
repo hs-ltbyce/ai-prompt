@@ -138,6 +138,15 @@ created: ...
 - Skill / Rule：`code-review.md`、`git-commit-style.md`、`test-generation.md`
 - 博客/文章：`how-to-write-good-prompts.md`、`understanding-agentic-workflows.md`
 
+### articles/ 目录专用命名规范
+
+`articles/` 下的文件命名使用中文（可保留专有名词原文），例如：
+- `github-copilot-credits-23个省钱技巧.md`
+- `superpowers-完整开发方法论框架.md`
+- `软件开发推荐技能清单.md`
+
+---
+
 ### adapters/ 目录文件结构
 
 以工具原生格式为准，同时保留 frontmatter 标注来源。
